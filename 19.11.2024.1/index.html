@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebStudio</title>
+  <link rel="stylesheet" href="sass/main.css">
+
+
+    <style>
+
+a, .btn, .filter button {
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+              background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.nav a, nav ul li a, nav .btn {
+  position: relative;
+}
+.nav a::after, nav ul li a::after, nav .btn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  background-color: #2196F3;
+  transition: width 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.nav a:hover::after, .nav a:focus::after, .nav a.active::after,
+nav ul li a:hover::after, nav ul li a.active::after,
+nav .btn.active::after {
+  width: 100%;
+}
+.nav a:hover, .nav a:focus {
+  color: #2196F3;
+}
+.btn:hover, .btn:focus {
+  background-color: #1976d2;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.filter button:hover, .filter button:focus {
+  background-color: #1976d2;
+}
+.socials a {
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.socials a:hover {
+  background-color: #2196F3;
+}
+.portfolio .item .overlay {
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+@keyframes fadeInHeader {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes pulsateBtn {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+        body {
+            color: #212121;
+            background-color: #fff;
+            line-height: 1.5;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .header {
+            background: url('21.jpg') center/cover no-repeat;
+            color: white;
+            padding: 30px 0;
+            animation: fadeInHeader 1s ease-out forwards; 
+        }
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .logo span {
+            color: #2196F3;
+        }
+        .nav a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+        }
+        .contact-info a {
+            display: block;
+            color: white;
+            text-decoration: none;
+        }
+        .header-content {
+            text-align: center;
+        }
+        .header-content h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        .btn {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+            animation: pulsateBtn 2s infinite ease-in-out; 
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 60px 0;
+            text-align: center;
+        }
+        .feature img {
+            height: 40px;
+            margin-bottom: 10px;
+        }
+        .feature h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .services {
+            padding: 60px 0;
+        }
+        .services h2 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .services-grid img {
+            width: 100%;
+            height: auto;
+        }
+        .team {
+            background-color: #F5F4FA;
+            padding: 60px 0;
+        }
+        .team h2 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .team-member {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .team-member img {
+            width: 100%;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+
+
+
+        .socials a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+    margin: 0 5px;
+    border-radius: 50%;
+}
+
+.socials a img,
+.socials a svg {
+    width: 35px;
+    height: 35px;
+}
+
+
+
+
+        .socials a {
+            margin: 0 5px;
+        }
+        .clients {
+            padding: 60px 0;
+            text-align: center;
+        }
+        .clients-grid {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .clients-grid img {
+            max-height: 50px;
+        }
+        .footer {
+            background-color: #2F303A;
+            color: white;
+            padding: 40px 0;
+        }
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer address,
+        .footer a {
+            color: white;
+            text-decoration: none;
+            font-style: normal;
+        }
+
+
+
+        .backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.backdrop.is-hidden {
+  display: none;
+}
+
+.modal {
+  position: relative;
+  background: #fff;
+  padding: 30px;
+  max-width: 500px;
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.modal form input,
+.modal form textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.modal form button {
+  width: 100%;
+}
+
+.btn-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: #000;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+  .side-menu {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #2F303A;
+    color: white;
+    transition: left 0.3s ease;
+    z-index: 2000;
+    padding: 30px 20px;
+  }
+
+  .side-menu a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
+
+  .side-hover-zone {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 100%;
+    z-index: 1999;
+  }
+
+  .side-hover-zone:hover + .side-menu,
+  .side-menu:hover {
+    left: 0;
+  }
+
+
+
+    </style>
+
+</head>
+<body>
+
+
+
+
+
+<div class="side-hover-zone"></div>
+
+<div class="side-menu">
+  <h3>Меню</h3>
+  <a href="#">Головна</a>
+  <a href="#">Студія</a>
+  <a href="#">Портфоліо</a>
+  <a href="#contacts">Контакти</a>
+</div>
+
+
+
+
+<div class="backdrop is-hidden" data-modal>
+  <div class="modal">
+    <button type="button" class="btn-close" data-modal-close>&times;</button>
+    <h2>Замовити послугу</h2>
+    <form>
+      <input type="text" placeholder="Ваше ім'я" required>
+      <input type="email" placeholder="Ваш email" required>
+      <textarea placeholder="Коментар"></textarea>
+      <button type="submit" class="btn">Відправити</button>
+    </form>
+  </div>
+</div>
+
+
+
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">Web<span>Studio</span></div>
+                <nav class="nav">
+                    <a href="index.html" class="btn active">Студія</a>
+                    <a href="index2.html" class="btn">Портфоліо</a>
+                    <a href="#contacts">Контакти</a>
+                </nav>
+                <div class="contact-info">
+                    <a href="mailto:info@devstudio.com">info@devstudio.com</a>
+                    <a href="tel:+380961111111">+38 096 111 11 11</a>
+                </div>
+            </div>
+            <div class="header-content">
+                <h1>Ефективні рішення для вашого бізнесу</h1>
+                <button class="btn">Замовити послугу</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="features container">
+        <div class="feature">
+            <img src="17.png" alt="Увага до деталей">
+            <h3>Увага до деталей</h3>
+            <p>Ідейні міркування, і навіть початок повсякденної роботи.</p>
+        </div>
+        <div class="feature">
+            <img src="18.png" alt="Пунктуальність">
+            <h3>Пунктуальність</h3>
+            <p>Завдання організації, особливо рамки і місце навчання кадрів тягне у себе.</p>
+        </div>
+        <div class="feature">
+            <img src="19.png" alt="Планування">
+            <h3>Планування</h3>
+            <p>Так само консультація з широким активом значною мірою зумовлює.</p>
+        </div>
+        <div class="feature">
+            <img src="20.png" alt="Сучасні технології">
+            <h3>Сучасні технології</h3>
+            <p>Значимість цих проблем настільки очевидна.</p>
+        </div>
+    </section>
+
+    <section class="services container">
+        <h2>Чим ми займаємося</h2>
+        <div class="services-grid">
+            <img src="4.jpeg" alt="Service 1">
+            <img src="2.jpeg" alt="Service 2">
+            <img src="3.jpeg" alt="Service 3">
+        </div>
+    </section>
+
+    <section class="team container">
+        <h2>Наша команда</h2>
+        <div class="team-grid">
+            <div class="team-member">
+                <img src="7.jpeg" alt="Ігор Дем'яненко">
+                <h3>Ігор Дем'яненко</h3>
+                <p>Product Designer</p>
+                <div class="socials">
+                    <a href="#"><img src="insta.png" alt="Instagram"></a>
+                    <a href="#"><img src="twiter.png" alt="Twitter"></a>
+                    <a href="#"><img src="fesbook.png" alt="Facebook"></a>
+                    <a href="#"><img src="in.png" alt="LinkedIn"></a>
+                </div>
+            </div>
+            <div class="team-member">
+                <img src="6.jpg" alt="Ольга Рєпіна">
+                <h3>Ольга Рєпіна</h3>
+                <p>Frontend Developer</p>
+                <div class="socials">
+                     <a href="#"><img src="insta.png" alt="Instagram"></a>
+                    <a href="#"><img src="twiter.png" alt="Twitter"></a>
+                    <a href="#"><img src="fesbook.png" alt="Facebook"></a>
+                    <a href="#"><img src="in.png" alt="LinkedIn"></a>
+                </div>
+            </div>
+            <div class="team-member">
+                <img src="3.jpeg" alt="Микола Тарасов">
+                <h3>Микола Тарасов</h3>
+                <p>Marketing</p>
+                <div class="socials">
+                      <a href="#"><img src="insta.png" alt="Instagram"></a>
+                    <a href="#"><img src="twiter.png" alt="Twitter"></a>
+                    <a href="#"><img src="fesbook.png" alt="Facebook"></a>
+                    <a href="#"><img src="in.png" alt="LinkedIn"></a>
+                </div>
+            </div>
+            <div class="team-member">
+                <img src="5.jpeg" alt="Михайло Єрмаков">
+                <h3>Михайло Єрмаков</h3>
+                <p>UI Designer</p>
+                <div class="socials">
+                <a href="#"><img src="insta.png" alt="Instagram"></a>
+                    <a href="#"><img src="twiter.png" alt="Twitter"></a>
+                    <a href="#"><img src="fesbook.png" alt="Facebook"></a>
+                    <a href="#"><img src="in.png" alt="LinkedIn"></a>
+                </div>
+            </div>
+
+    </section>
+
+    <section class="clients container">
+        <h2>Постійні клієнти</h2>
+        <div class="clients-grid">
+            <img src="Client 1.png" alt="Client 1">
+            <img src="Client 2.png" alt="Client 2">
+            <img src="Client 3.png" alt="Client 3">
+            <img src="Client 4.png" alt="Client 4">
+            <img src="Client 5.png" alt="Client 5">
+            <img src="Client 6.png" alt="Client 6">
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="logo">Web<span>Studio</span></div>
+                <address>
+                    м. Київ, пр-т Лесі Українки, 26<br>
+                    <a href="mailto:info@devstudio.com">info@devstudio.com</a><br>
+                    +38 096 111 11 11
+                </address>
+            </div>
+            <div class="footer-bottom">
+                <p>Приєднуйтесь:</p>
+                <div class="socials">
+                    <a href="#"><img src="insta.png" alt="Instagram"></a>
+                    <a href="#"><img src="twiter.png" alt="Twitter"></a>
+                    <a href="#"><img src="fesbook.png" alt="Facebook"></a>
+                    <a href="#"><img src="in.png" alt="LinkedIn"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        (() => {
+          const refs = {
+            openModalBtn: document.querySelector(".header-content .btn"),
+            closeModalBtn: document.querySelector("[data-modal-close]"),
+            modal: document.querySelector("[data-modal]"),
+          };
+
+          refs.openModalBtn.addEventListener("click", toggleModal);
+          refs.closeModalBtn.addEventListener("click", toggleModal);
+
+          function toggleModal() {
+            refs.modal.classList.toggle("is-hidden");
+            document.body.classList.toggle("no-scroll");
+          }
+        })();
+      </script>
+
+  <script src="js/mobile-menu.js"></script>
+</body>
+</html>

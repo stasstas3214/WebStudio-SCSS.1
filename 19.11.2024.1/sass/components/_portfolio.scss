@@ -1,0 +1,15 @@
+.portfolio {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+
+  &__item {
+    background: #f0f0f0;
+    padding: 10px;
+    width: 100%;
+  }
+
+  &__title {
+    font-weight: bold;
+  }
+}
